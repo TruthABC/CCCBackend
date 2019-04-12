@@ -1,9 +1,7 @@
-package hk.hku.cs.shijian.cccbackend.controller;
+package hk.hku.cs.shijian.cccbackend.service;
 
 import hk.hku.cs.shijian.cccbackend.entity.response.CommonResponse;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -12,14 +10,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-@RestController
-public class FindPicController {
+@Service
+public class FileUploadService {
 
-    //1. get FileInfoList by relative path
-    @RequestMapping("/FindPic")
-    @CrossOrigin
-    public CommonResponse upload(HttpServletRequest request,
-                         MultipartHttpServletRequest multiReq) {
+    public CommonResponse storeUploadedFile(HttpServletRequest request, MultipartHttpServletRequest multiReq, String dir) {
+
         //Construct Response
         CommonResponse response;
 
@@ -31,8 +26,8 @@ public class FindPicController {
 
         //Construct absolute root path
         String absoluteRootPath = request.getRealPath("/");
-        absoluteRootPath += "WEB-INF/classes/static/data";
-        absoluteRootPath += "/uploadedImage/";
+        absoluteRootPath += "WEB-INF/classes/static/data/";
+        absoluteRootPath += dir;
 
         //Make sure the root directory exists
         File rootDir = new File(absoluteRootPath);

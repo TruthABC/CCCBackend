@@ -7,7 +7,7 @@
 <script src="js/jquery.min.js"></script>
 <body style="text-align: center">
 <input id="fileToUpload" type ="file" style="margin-top: 5em"/>
-<button onclick="doUploadFile()">Upload</button>
+<button onclick="doUploadFile()">find pic local</button>
 <script>
     function doUploadFile() {
 
@@ -20,7 +20,7 @@
 
         //init for ajax file upload
         var file = files[0];
-        var url = "simple_upload" + document.location.search;
+        var url = "find_pic_local" + document.location.search;
         var formData = new FormData();
         formData.append('file',file);
 
