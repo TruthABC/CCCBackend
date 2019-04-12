@@ -25,7 +25,7 @@ public class GreetingController {
 
         //File Mapping Test (relative path || absolute(real) path || system path || net path)
         String realPath = request.getRealPath("/");
-        realPath += "WEB-INF\\classes\\static\\data\\";
+        realPath += "WEB-INF/classes/static/data/";
 
         File f = new File(realPath + "greeting.txt");
         File dir = new File(realPath);
