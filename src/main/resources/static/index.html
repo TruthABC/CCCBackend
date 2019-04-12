@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>简单的Login Form登录页html模板_01</title>
+    <link href="css/index.css" rel="stylesheet" type="text/css" media="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="js/jquery.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+<!-- 表单设计 -->
+<div class="message warning">
+    <div class="inset">
+        <!--表单顶部设计：文字、布局-->
+        <div class="login-head">
+            <h1>Login Form</h1>
+            <div class="alert-close"> </div>
+        </div>
+        <!--表单container内容设计-->
+        <form>
+            <li>
+                <input type="text" class="login-form-input" class="text" value="Username" onfocus="doFocus(this)" onblur="doBlur(this)">
+                <a href="#" class=" icon user"></a>
+            </li>
+            <div class="clear"> </div>
+            <li>
+                <input type="password" class="login-form-input" value="Password" onfocus="doFocus(this)" onblur="doBlur(this)">
+                <a href="#" class="icon lock"></a>
+            </li>
+            <div class="clear"> </div>
+            <div class="submit">
+                <input type="submit" id="btn-sign-in" value="Sign in">
+                <h4><a href="#">Lost your Password ?</a></h4>
+                <div class="clear"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="clear"></div>
+<!--- 页脚footer，记录版权info --->
+<div class="footer">
+    <p>Copyright &copy; 2018.</p>
+</div>
+</body>
+</html>
