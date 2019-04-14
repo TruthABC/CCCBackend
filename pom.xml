@@ -38,6 +38,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- javaCV -->
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
+            <version>1.4.4</version>
+        </dependency>
+
         <!--mybatis on spring boot-->
         <!--<dependency>-->
             <!--<groupId>org.mybatis.spring.boot</groupId>-->
