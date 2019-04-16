@@ -1,6 +1,7 @@
 package hk.hku.cs.shijian.cccbackend.controller;
 
 import hk.hku.cs.shijian.cccbackend.entity.response.CommonResponse;
+import hk.hku.cs.shijian.cccbackend.entity.response.FindPicResponse;
 import hk.hku.cs.shijian.cccbackend.service.FileUploadService;
 import hk.hku.cs.shijian.cccbackend.service.JavaCVLocalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class FindPicLocalController {
         this.cvService = cvService;
     }
 
-    @RequestMapping("/find_pic_local")
+    @RequestMapping("/find_picture_local")
     @CrossOrigin
     public CommonResponse findPicLocal(HttpServletRequest request,
                          MultipartHttpServletRequest multiReq) {
@@ -33,21 +34,18 @@ public class FindPicLocalController {
         String absoluteRootPath = request.getRealPath("/");
         absoluteRootPath += "WEB-INF/classes/static/data/";
 
-        //Assign Relative Path and Store
+        //Assign Relative Path and Store files
         String imageRelativeDirPath = "uploadedImage/";
-        CommonResponse response = uploadService.storeUploadedFile(request, multiReq, imageRelativeDirPath);
-
-        if (response.getErrcode() != 0) {
-            return response;
+        CommonResponse interCommonResponse = uploadService.storeUploadedFile(request, multiReq, imageRelativeDirPath);
+        if (interCommonResponse.getErrcode() != 0) {
+            return interCommonResponse;
         }
 
+        //Assign paths and do CV oprations
         MultipartFile mFile = multiReq.getFile("file");
-        String imagePath = absoluteRootPath = imageRelativeDirPath + mFile.getOriginalFilename();
-
-        long timeStamp = cvService.calMatchTimeStamp(absoluteRootPath, imagePath, absoluteRootPath + "videos/EP00.mp4");
-
-        response.setErrmsg("Timestamp is:" + timeStamp);
-        return response;
+        String imagePath = absoluteRootPath + imageRelativeDirPath + mFile.getOriginalFilename();
+        FindPicResponse findPicResponse = cvService.calMatchTimeStamp(absoluteRootPath, imagePath, absoluteRootPath + "videos/EP00.mp4");
+        return findPicResponse;
     }
 
 }

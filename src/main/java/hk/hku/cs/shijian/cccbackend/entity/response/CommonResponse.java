@@ -1,13 +1,11 @@
 package hk.hku.cs.shijian.cccbackend.entity.response;
 
 public class CommonResponse {
-    private int errcode;
-    private String errmsg;
 
-    public CommonResponse() {
-        this.errcode = 0;
-        this.errmsg = "";
-    }
+    protected int errcode;
+    protected String errmsg;
+
+    public CommonResponse() {}
 
     public CommonResponse(int errcode, String errmsg) {
         this.errcode = errcode;
