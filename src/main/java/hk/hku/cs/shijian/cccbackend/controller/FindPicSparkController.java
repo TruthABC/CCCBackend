@@ -30,7 +30,7 @@ public class FindPicSparkController {
 
     @RequestMapping("/find_picture_spark")
     @CrossOrigin
-    public CommonResponse findPicSpark(@RequestParam(value="video", defaultValue="") String video,
+    public CommonResponse findPicSpark(@RequestParam(value="videoname", defaultValue="") String videoname,
                                        HttpServletRequest request,
                                        MultipartHttpServletRequest multiReq) throws Exception {
 
@@ -56,7 +56,7 @@ public class FindPicSparkController {
         GlobalSpark.LFStoHDFS(imagePath, imageSparkPath);
 
         FindPicResponse findPicResponse = cvService.submitSpark(absoluteRootPath, imageSparkPath,
-                GlobalSpark.HDFS_VIDEO_DIR + video, timestamp);
+                videoname, timestamp);
         return findPicResponse;
     }
 }

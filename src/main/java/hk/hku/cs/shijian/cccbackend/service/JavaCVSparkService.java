@@ -14,7 +14,8 @@ import java.io.InputStreamReader;
 public class JavaCVSparkService {
     private static FindPicResponse findPicResponseCache = null;
 
-    public static FindPicResponse submitSpark(String absoluteRootPath, String imagePath, String videoPath, String timestamp) throws Exception {
+    public static FindPicResponse submitSpark(String absoluteRootPath, String imagePath, String videoname, String timestamp) throws Exception {
+        String videoPath = GlobalSpark.HDFS_VIDEO_DIR + videoname + ".mp4" ;
         GlobalSpark.callCMD(imagePath, videoPath, timestamp);
 
         // result file hdfs -> lfs
@@ -41,6 +42,8 @@ public class JavaCVSparkService {
             GlobalSpark.HDFStoLFS(src, dst);
             i++;
         }
+        //String video_local = absoluteRootPath + "/videos/" + videoname + ".mp4";
+        //GlobalSpark.HDFStoLFS(videoPath, video_local);
 
         // pack response
         findPicResponseCache = new FindPicResponse(0, "CV behaved well");
