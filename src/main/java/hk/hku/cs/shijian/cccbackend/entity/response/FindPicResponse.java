@@ -4,7 +4,7 @@ public class FindPicResponse extends CommonResponse {
 
     private long[] timeStamps;
     private double[] similarities;
-    private String timestamp;
+    private String timestamp = "";
 
     public FindPicResponse() {
         super();

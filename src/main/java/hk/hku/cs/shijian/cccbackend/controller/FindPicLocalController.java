@@ -7,6 +7,7 @@ import hk.hku.cs.shijian.cccbackend.service.JavaCVLocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -27,8 +28,9 @@ public class FindPicLocalController {
 
     @RequestMapping("/find_picture_local")
     @CrossOrigin
-    public CommonResponse findPicLocal(HttpServletRequest request,
-                         MultipartHttpServletRequest multiReq) {
+    public CommonResponse findPicLocal(@RequestParam(value="videoname", defaultValue="") String videoname,
+                                       HttpServletRequest request,
+                                       MultipartHttpServletRequest multiReq) {
 
         //Construct Absolute Path
         String absoluteRootPath = request.getRealPath("/");
@@ -44,7 +46,7 @@ public class FindPicLocalController {
         //Assign paths and do CV oprations
         MultipartFile mFile = multiReq.getFile("file");
         String imagePath = absoluteRootPath + imageRelativeDirPath + mFile.getOriginalFilename();
-        FindPicResponse findPicResponse = cvService.calMatchTimeStamp(absoluteRootPath, imagePath, absoluteRootPath + "videos/EP00.mp4");
+        FindPicResponse findPicResponse = cvService.calMatchTimeStamp(absoluteRootPath, imagePath, absoluteRootPath + "videos/" + videoname + ".mp4");
         return findPicResponse;
     }
 

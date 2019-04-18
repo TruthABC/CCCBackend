@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Searcher</title>
+    <link href="css/maincss.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<!--    <script type="text/javascript" src="js/jquery.min.js"></script>-->
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/mainjs.js"></script>
+</head>
+<body>
+    <header class="container">
+        <div class="col-md-8 col-md-offset-2">
+            <h1>Search Photos In Video</h1>
+            <!-- COMPONENT START -->
+            <div class="form-group">
+                <div class="input-group input-file" name="Fichier1">
+                    <input type="text" class="form-control" placeholder='Choose a file...'/>
+                    <span class="input-group-btn">
+							<button class="btn btn-default btn-choose" type="button">Choose</button>
+                    </span>
+                </div>
+            </div>
+            <!-- COMPONENT END -->
+            <div class="form-group">
+                <button id="submitImage" type="submit" class="btn btn-primary pull-right">Submit</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+            </div>
+            <!-- </form> -->
+<!--            <select id="chooseVideo" multiple class="form-control">-->
+            <select id="chooseVideo">
+                <option>Choose a video...</option>
+                <option>EP00</option>
+                <option>JDFT1_clip1</option>
+                <option>JDFT1_clip2</option>
+                <option>JDFT1_clip3</option>
+                <option>JDFT1_clip4</option>
+                <option>JDFT1_clip5</option>
+                <option>JDFT1_clip6</option>
+                <option>JDFT1_clip7</option>
+                <option>JDFT1_clip8</option>
+                <option>JDFT2</option>
+                <option>MDM1</option>
+                <option>MDM2</option>
+                <option>XWLB1</option>
+                <option>XWLB2</option>
+                <!--                <option>JDFT3</option>-->
+<!--                <option>JDFT4</option>-->
+<!--                <option>JDFT5</option>-->
+<!--                <option>JDFT6</option>-->
+<!--                <option>JDFT7</option>-->
+<!--                <option>JDFT8</option>-->
+<!--                <option>JDFT9</option>-->
+<!--                <option>JDFT10</option>-->
+<!--                <option>JDFT11</option>-->
+<!--                <option>JDFT12</option>-->
+<!--                <option>JDFT13</option>-->
+<!--                <option>JDFT14</option>-->
+<!--                <option>JDFT15</option>-->
+<!--                <option>JDFT16</option>-->
+<!--                <option>JDFT17</option>-->
+<!--                <option>JDFT18</option>-->
+<!--                <option>JDFT19</option>-->
+<!--                <option>JDFT20</option>-->
+<!--                <option>JDFT21</option>-->
+<!--                <option>JDFT22</option>-->
+<!--                <option>JDFT23</option>-->
+<!--                <option>JDFT24</option>-->
+<!--                <option>JDFT25</option>-->
+<!--                <option>JDFT26</option>-->
+
+            </select>
+            <div>
+                <button id="previewVideo" class="btn btn-primary pull-right" onclick="videoPreview();">Video Preview</button>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <article id="allimage" class="container">
+        <div class="col-md-8 col-md-offset-2">
+            <h3>Original Picture</h3>
+            <img id="upload_image" src="http://localhost:8080/CCCBackend_war_exploded/data/search_image_by_video/1001000.png" alt="">
+            <h3>Best Match</h3>
+            <img id="return_image1" src="http://localhost:8080/CCCBackend_war_exploded/data/search_image_by_video/1001000.png" alt="">
+            <h3>Other Matches</h3>
+            <img id="return_image2" src="http://localhost:8080/CCCBackend_war_exploded/data/search_image_by_video/1001000.png" alt="">
+            <img id="return_image3" src="http://localhost:8080/CCCBackend_war_exploded/data/search_image_by_video/1001000.png" alt="">
+            <img id="return_image4" src="http://localhost:8080/CCCBackend_war_exploded/data/search_image_by_video/1001000.png" alt="">
+            <img id="return_image5" src="http://localhost:8080/CCCBackend_war_exploded/data/search_image_by_video/1001000.png" alt="">
+        </div>
+    </article>
+
+    <footer>
+
+    </footer>
+</body>
+</html>
